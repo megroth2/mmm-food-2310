@@ -22,6 +22,6 @@ RSpec.describe Food do
   end
 
   xit "returns ten foods that contain a given ingredient" do
-
+    # Do I need to set up factory bot and faker to properly test this? Will come back to it later
   end
 end

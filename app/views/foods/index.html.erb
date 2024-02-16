@@ -1,5 +1,8 @@
-<%# <h1> Merchants </h2> %>
+<h1> Foods </h2>
 
-<%# <% @merchants.each do |merchant| %> %>
-  <%# <li><%= link_to merchant[:attributes][:name], merchant_path(merchant) %></li> %>
-<%# <% end %> %>
+<% @top_ten_foods.each do |food| %>
+  <ul>GTIN/UPC code: <%= food.gtin_upc_code %></ul>
+    <li>Description: <%= food.description %></li>
+    <li>Brand Owner: <%= food.brand_owner %></li>
+    <li>Ingredients: <%= food.ingredients %></li>
+<% end %>

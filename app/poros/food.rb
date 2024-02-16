@@ -8,7 +8,7 @@ class Food
     @ingredients = data[:ingredients]
   end
 
-  def ten_foods_that_contain(ingredient)
-    Food.where("[:foods][:ingredients] LIKE ?", "%#{ingredient}%").limit(10)
+  def self.ten_foods_that_contain(ingredient)
+    where("[:foods][:ingredients] LIKE ?", "%#{ingredient}%").limit(10)
   end
 end
