@@ -1,10 +1,11 @@
 class FoodsController < ApplicationController
   def index
-    conn = Faraday.new(url: "https://developer.nrel.gov")
+    conn = Faraday.new(url: "https://api.nal.usda.gov/fdc") do |faraday|
+      faraday.headers["X-API-KEY"] = Rails.application.credentials.usda[:key]
+    end
+  
+    response = conn.get("/fdc/v1/foods/search", { query: params[:q] })
 
-    response = conn.get("/fdc/v1/foods/search", { api_key: Rails.application.credentials.usda[:key], query: params[:q] })
-
-    # binding.pry # response.status returns 302, but the same request in postman returns json and a 200 code
     json = JSON.parse(response.body, symbolize_names: true)
 
     foods = json[:foods]
