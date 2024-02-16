@@ -8,7 +8,7 @@ class Food
     @ingredients = data[:ingredients]
   end
 
-  def self.ten_foods_that_contain(ingredient)
+  def self.ten_foods_that_contain(ingredient) # should this be somewhere else other than the poro?
     where("[:foods][:ingredients] LIKE ?", "%#{ingredient}%").limit(10)
   end
 end

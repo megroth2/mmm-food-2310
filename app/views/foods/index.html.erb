@@ -1,6 +1,6 @@
-<h1> Foods </h2>
+<h1> Foods </h1>
 
-<% @top_ten_foods.each do |food| %>
+<% @foods.each do |food| %>
   <ul>GTIN/UPC code: <%= food.gtin_upc_code %></ul>
     <li>Description: <%= food.description %></li>
     <li>Brand Owner: <%= food.brand_owner %></li>
